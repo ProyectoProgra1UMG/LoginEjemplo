@@ -47,6 +47,9 @@
     <ClInclude Include="MySQLConnector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AggForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -66,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="MySQLConnector.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AggForm.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,7 @@
 #pragma once
-
 // uncomment to execute the rk1-utils:
 //    #include "rk1_Utils_demo.h"  // shows how the rk1-utils can be used
-
+#include "AggForm.h"
 #include "Header1.h"
 #include "Header2.h"
 #include "MySQLConnector.h"
@@ -23,6 +22,8 @@ namespace CppCLRWinFormsProject {
   {
   public:
       MySQLConnector^ connector = gcnew MySQLConnector();
+  private: System::Windows::Forms::Button^ btt_creanCuenta;
+  public:
       MySqlConnection^ connection;
     Form1(void)
     {
@@ -86,6 +87,7 @@ namespace CppCLRWinFormsProject {
         this->label1 = (gcnew System::Windows::Forms::Label());
         this->label2 = (gcnew System::Windows::Forms::Label());
         this->txtEntrarAlSistema = (gcnew System::Windows::Forms::Button());
+        this->btt_creanCuenta = (gcnew System::Windows::Forms::Button());
         this->SuspendLayout();
         // 
         // txtUsuario
@@ -135,11 +137,22 @@ namespace CppCLRWinFormsProject {
         this->txtEntrarAlSistema->UseVisualStyleBackColor = true;
         this->txtEntrarAlSistema->Click += gcnew System::EventHandler(this, &Form1::txtEntrarAlSistema_Click);
         // 
+        // btt_creanCuenta
+        // 
+        this->btt_creanCuenta->Location = System::Drawing::Point(162, 313);
+        this->btt_creanCuenta->Name = L"btt_creanCuenta";
+        this->btt_creanCuenta->Size = System::Drawing::Size(111, 23);
+        this->btt_creanCuenta->TabIndex = 5;
+        this->btt_creanCuenta->Text = L"No tengo cuenta";
+        this->btt_creanCuenta->UseVisualStyleBackColor = true;
+        this->btt_creanCuenta->Click += gcnew System::EventHandler(this, &Form1::btt_creanCuenta_Click);
+        // 
         // Form1
         // 
         this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
         this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-        this->ClientSize = System::Drawing::Size(442, 308);
+        this->ClientSize = System::Drawing::Size(442, 364);
+        this->Controls->Add(this->btt_creanCuenta);
         this->Controls->Add(this->txtEntrarAlSistema);
         this->Controls->Add(this->label2);
         this->Controls->Add(this->label1);
@@ -214,6 +227,11 @@ private: System::Void txtEntrarAlSistema_Click(System::Object^ sender, System::E
     }
 
 }
+    private: System::Void btt_creanCuenta_Click(System::Object^ sender, System::EventArgs^ e) {
+
+        proyecto_LOGIN_EN_C::AggForm^ segundoForm = gcnew proyecto_LOGIN_EN_C::AggForm();
+        segundoForm->Show();
+    }
 }; // end of class Form1
 } // end of namespace CppCLRWinFormsProject
 

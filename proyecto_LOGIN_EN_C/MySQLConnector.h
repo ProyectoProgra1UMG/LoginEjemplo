@@ -13,7 +13,7 @@ private:
 
 public:
     String^ connectionString;
-    String^ host = "localhost";
+    String^ host = "127.0.0.1";
     String^ usuario = "root";
     String^ contraseña = "";
     String^ database = "bd_registo_personas";

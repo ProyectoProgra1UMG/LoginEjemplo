@@ -134,6 +134,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AggForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ConexionMySql.h" />
     <ClInclude Include="CppCLR_Utils.h" />
     <ClInclude Include="Form1.h">
@@ -147,6 +150,7 @@
     <ClInclude Include="rk1_Utils_demo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AggForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ConexionMySql.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
@@ -173,6 +177,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AggForm.resx">
+      <DependentUpon>AggForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
