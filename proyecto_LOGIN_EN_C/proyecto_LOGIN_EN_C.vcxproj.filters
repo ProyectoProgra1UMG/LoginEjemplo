@@ -50,6 +50,9 @@
     <ClInclude Include="AggForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FormPrueba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -71,6 +74,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AggForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormPrueba.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>

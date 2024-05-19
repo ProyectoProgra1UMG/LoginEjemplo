@@ -23,6 +23,8 @@ namespace CppCLRWinFormsProject {
   public:
       MySQLConnector^ connector = gcnew MySQLConnector();
   private: System::Windows::Forms::Button^ btt_creanCuenta;
+  private: System::Windows::Forms::Label^ label3;
+  private: System::Windows::Forms::Button^ btt_ver;
   public:
       MySqlConnection^ connection;
     Form1(void)
@@ -88,6 +90,8 @@ namespace CppCLRWinFormsProject {
         this->label2 = (gcnew System::Windows::Forms::Label());
         this->txtEntrarAlSistema = (gcnew System::Windows::Forms::Button());
         this->btt_creanCuenta = (gcnew System::Windows::Forms::Button());
+        this->label3 = (gcnew System::Windows::Forms::Label());
+        this->btt_ver = (gcnew System::Windows::Forms::Button());
         this->SuspendLayout();
         // 
         // txtUsuario
@@ -105,6 +109,7 @@ namespace CppCLRWinFormsProject {
         this->txtContraseña->Name = L"txtContraseña";
         this->txtContraseña->Size = System::Drawing::Size(275, 35);
         this->txtContraseña->TabIndex = 1;
+        this->txtContraseña->UseSystemPasswordChar = true;
         // 
         // label1
         // 
@@ -147,11 +152,34 @@ namespace CppCLRWinFormsProject {
         this->btt_creanCuenta->UseVisualStyleBackColor = true;
         this->btt_creanCuenta->Click += gcnew System::EventHandler(this, &Form1::btt_creanCuenta_Click);
         // 
+        // label3
+        // 
+        this->label3->AutoSize = true;
+        this->label3->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+        this->label3->Location = System::Drawing::Point(106, 9);
+        this->label3->Name = L"label3";
+        this->label3->Size = System::Drawing::Size(234, 39);
+        this->label3->TabIndex = 6;
+        this->label3->Text = L"INICIAR SECIÓN";
+        // 
+        // btt_ver
+        // 
+        this->btt_ver->Location = System::Drawing::Point(377, 190);
+        this->btt_ver->Name = L"btt_ver";
+        this->btt_ver->Size = System::Drawing::Size(36, 34);
+        this->btt_ver->TabIndex = 7;
+        this->btt_ver->Text = L"Ver";
+        this->btt_ver->UseVisualStyleBackColor = true;
+        this->btt_ver->Click += gcnew System::EventHandler(this, &Form1::btt_ver_Click);
+        // 
         // Form1
         // 
         this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
         this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
         this->ClientSize = System::Drawing::Size(442, 364);
+        this->Controls->Add(this->btt_ver);
+        this->Controls->Add(this->label3);
         this->Controls->Add(this->btt_creanCuenta);
         this->Controls->Add(this->txtEntrarAlSistema);
         this->Controls->Add(this->label2);
@@ -178,7 +206,7 @@ namespace CppCLRWinFormsProject {
       
   }
 private: System::Void txtEntrarAlSistema_Click(System::Object^ sender, System::EventArgs^ e) {
-    try 
+    try         
 {
 
        
@@ -225,12 +253,29 @@ private: System::Void txtEntrarAlSistema_Click(System::Object^ sender, System::E
             connector->CloseConnection();
         }
     }
+    
+
+    this->txtUsuario->Text = "";
+    this->txtContraseña->Text = "";
 
 }
     private: System::Void btt_creanCuenta_Click(System::Object^ sender, System::EventArgs^ e) {
 
-        proyecto_LOGIN_EN_C::AggForm^ segundoForm = gcnew proyecto_LOGIN_EN_C::AggForm();
+        proyecto_LOGIN_EN_C::AggForm^ segundoForm = gcnew proyecto_LOGIN_EN_C::AggForm(connection);
         segundoForm->Show();
+    }
+
+
+    private: System::Void btt_ver_Click(System::Object^ sender, System::EventArgs^ e) {
+        bool viendo = txtContraseña->UseSystemPasswordChar;
+        if (viendo)
+        {
+            txtContraseña->UseSystemPasswordChar = false;
+        }
+        else
+        {
+            txtContraseña->UseSystemPasswordChar = true;
+        }
     }
 }; // end of class Form1
 } // end of namespace CppCLRWinFormsProject
